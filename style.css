@@ -1,0 +1,115 @@
+/*reseteo*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.principal__menu ul li{
+    display: inline-block;
+}
+
+body {
+    background-color: #eceef3;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold; }
+    body header {
+      display: block;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: stretch;
+      margin: 1rem; }
+    body header h1 a:visited {
+      color: #260209;
+      text-decoration: none; }
+    body header h1 a:link {
+      color: #260209;
+      text-decoration: none; }
+
+h1, h2 {
+    margin: 0;
+}
+
+#logout {
+    display: none;
+}
+
+nav {
+    padding: 20px;
+    background-color: rgb(73, 73, 73);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-login {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;    
+}
+
+input {
+    margin: 10px 0px;
+}
+
+.container-usuarios {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logint {
+    display: none;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}
+
+tbody:hover {
+    background-color: aqua;
+}
+
+.container-prod {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card { 
+    width: 150px;
+    height: 250px;
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.container_compra {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_compra {
+    margin: 10px;
+    border: 1px solid grey;
+}
