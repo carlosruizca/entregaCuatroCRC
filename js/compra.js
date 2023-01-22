@@ -25,7 +25,7 @@ const cardHtml = ( array ) => {
                 $ ${element.precio}
                 </h3>
                 <h3>
-                $ ${element.detalle}
+                ${element.detalle}
                 </h3>
                 <button id="boton-${element.id}" class="boton-card">
                     Eliminar del carrito
