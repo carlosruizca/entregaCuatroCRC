@@ -204,3 +204,14 @@ const productosOferta = [...productos].filter((elemento) =>
 console.log(productosOferta)
 
 cardsHTML(productosOferta)
+
+fetch("https://pokeapi.co/api/v2/pokemon/ditto/")
+.then (res  => res.json())
+.then (data =>  console.log(data))
+.catch(()  => console.log("no se encontró"))
+
+
+fetch("https://63cdb528fba6420d4d737047.mockapi.io/")
+.then (res  => res.json())
+.then (data =>  console.log(data))
+.catch(()  => console.log("no se encontró"))
