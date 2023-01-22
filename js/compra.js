@@ -1,3 +1,16 @@
+const botonModos = document.querySelector("#claro-oscuro")
+const body = document.querySelector(".modo-claro")
+
+botonModos.onclick = () => {
+    body.classList.toggle("modo-oscuro")
+    if ( body.className === "modo-claro modo-oscuro"){
+        botonModos.textContent = "Modo claro"
+
+    } else {
+        botonModos.textContent = "Modo oscuro"
+    }
+}
+
 let infoCarrito = JSON.parse(localStorage.getItem("carrito"))
 
 function cardsHTML_compra ( array )
@@ -17,7 +30,7 @@ function cardsHTML_compra ( array )
             </h2>
             <p>
                 Presentacion: ${productos.presentacion} \n
-                Descripcion: ${productos.precio}
+                Descripcion: ${productos.detalle}
             </p>
             <button id="boton-${productos.id}" class="botonEliminar">
                 Eliminar del carrito
@@ -26,6 +39,7 @@ function cardsHTML_compra ( array )
         contenedor.appendChild(card)
     })
 }
+
 
 cardsHTML_compra(infoCarrito || [])
 

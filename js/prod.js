@@ -1,5 +1,15 @@
+const botonModos = document.querySelector("#claro-oscuro")
+const body = document.querySelector(".modo-claro")
 
+botonModos.onclick = () => {
+    body.classList.toggle("modo-oscuro")
+    if ( body.className === "modo-claro modo-oscuro"){
+        botonModos.textContent = "Modo claro"
 
+    } else {
+        botonModos.textContent = "Modo oscuro"
+    }
+}
 
 function cardsHTML ( array )
 {
@@ -18,7 +28,7 @@ function cardsHTML ( array )
             </h2>
             <p>
                 Presentacion: ${productos.presentacion} \n
-                Descripcion: ${productos.precio}
+                Descripcion: ${productos.detalle}
             </p>
             <button class="tarjetaProd" id="${productos.id}" >
                 Añadir al carrito
@@ -49,3 +59,4 @@ tarjetas.forEach( boton => {
 
 const productosElegidos = JSON.parse(localStorage.getItem("carrito"))
 carrito = productosElegidos || []
+

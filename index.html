@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="modo-claro">
     <nav>
         <h1>
-            Tiendita de mercado
+            Tiendita de Charly
         </h1>
-        <button id="logout">
-            Cerrar sesión
-        </button>    
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Secundarios/productos.html">Productos</a></li>
+            <li><a href="Secundarios/compras.html">Carrito</a></li>
+            <li><a href="Secundarios/contacto.html">Contacto</a></li>
+            <button id="claro-oscuro">Modo oscuro</button>
+        </ul>  
     </nav>
     <main>
         <div class="container-login">
@@ -49,7 +53,15 @@
         <button id="ofertas">
             Descuentazos
         </button>  
+        <div>
+            <h3>Aprovecha estos descuentos</h3>
+            <div class="container-prod">
 
+            </div>
+        </div>
+        <button id="logout">
+            Cerrar sesión
+        </button>    
     </main>
     
     <script src="js/productos.js"></script>

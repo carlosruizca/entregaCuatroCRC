@@ -113,3 +113,26 @@ tbody:hover {
     margin: 10px;
     border: 1px solid grey;
 }
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    float: left;
+  }
+  
+  a {
+    display: block;
+    padding: 8px;
+    }
+
+    .modo-claro {
+        background-color: beige;
+    }
+    
+    .modo-oscuro {
+        background-color: darkslategray;
+    }

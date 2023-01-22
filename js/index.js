@@ -9,6 +9,19 @@ const organizarZA = document.querySelector("#organizarDos")
 const ofertas = document.querySelector("#ofertas")
 const contenedorProductos = document.querySelector(".container-productos")
 const tabla = document.querySelector("table")
+const botonModos = document.querySelector("#claro-oscuro")
+const body = document.querySelector(".modo-claro")
+
+
+botonModos.onclick = () => {
+    body.classList.toggle("modo-oscuro")
+    if ( body.className === "modo-claro modo-oscuro"){
+        botonModos.textContent = "Modo claro"
+
+    } else {
+        botonModos.textContent = "Modo oscuro"
+    }
+}
 
 const datosUsuario = {
     user: "carlos",
@@ -94,6 +107,7 @@ ofertas.onclick = () => {
 }
 
 
+
 logout.onclick = () => {
     localStorage.removeItem( "login" )
     console.log("me hacen click")
@@ -150,3 +164,43 @@ function productosAHtml ( array ) {
 
 productosAHtml(productos)
 
+ofertas.onclick = () => {
+    const productosOferta = [...productos].filter((elemento) => 
+    {
+        return elemento.oferta === true
+    })
+    console.log(productosOferta)
+    productosAHtml(productosOferta)
+}
+
+function cardsHTML ( array )
+{
+    const contenedor = document.querySelector(".container-prod")
+
+    array.map (( productos ) =>
+    {
+        const card = document.createElement ("div")
+        card.className = "card"
+        card.innerHTML = `
+            <h2> 
+                ${productos.nombreProducto}
+            </h2>
+            <h2> 
+               $ ${productos.precio}
+            </h2>
+            <p>
+                Presentacion: ${productos.presentacion} \n
+                Descripcion: ${productos.detalle}
+            </p>
+        `
+        contenedor.appendChild(card)
+    })
+}
+
+const productosOferta = [...productos].filter((elemento) => 
+{
+    return elemento.oferta === true
+})
+console.log(productosOferta)
+
+cardsHTML(productosOferta)
