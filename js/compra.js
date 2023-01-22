@@ -11,61 +11,57 @@ botonModos.onclick = () => {
     }
 }
 
-let infoCarrito = JSON.parse(localStorage.getItem("carrito"))
 
-function cardsHTML_compra ( array )
-{
-    const contenedor = document.querySelector(".container_compra")
+let infoDelLs = JSON.parse(localStorage.getItem("carrito"))
 
-    array.map (( productos ) =>
-    {
-        const card = document.createElement ("div")
-        card.className = "card"
-        card.innerHTML = `
-            <h2> 
-                ${productos.nombreProducto}
-            </h2>
-            <h2> 
-               $ ${productos.precio}
-            </h2>
-            <p>
-                Presentacion: ${productos.presentacion} \n
-                Descripcion: ${productos.detalle}
-            </p>
-            <button id="boton-${productos.id}" class="botonEliminar">
-                Eliminar del carrito
-            </button>
+const cardHtml = ( array ) => {
+    const generarNodos = array.reduce(( acc, element) => {
+        return acc + `
+            <div class="card" id="productos-${element.id}">
+                <h2>
+                    ${element.nombreProducto}
+                </h2>
+                <h3>
+                $ ${element.precio}
+                </h3>
+                <h3>
+                $ ${element.detalle}
+                </h3>
+                <button id="boton-${element.id}" class="boton-card">
+                    Eliminar del carrito
+                </button>
+            </div>
         `
-        contenedor.appendChild(card)
-    })
+    }, "")
+
+    document.querySelector(".carrito-contenedor").innerHTML = generarNodos
 }
 
-
-cardsHTML_compra(infoCarrito || [])
+cardHtml(infoDelLs || [])
 
 function borrarDelCarrito (array) {
-    const botonElmiminar = document.querySelectorAll(".botonEliminar")    
-    botonElmiminar.forEach( boton => {
+    const botonAniadir = document.querySelectorAll(".boton-card")    
+    botonAniadir.forEach( boton => {
         boton.onclick = () => {
-            const id = boton.id            
-            const listaProductos = array.filter((elemento, i) => {
+            const id = boton.id.slice(6)            
+            const filtrarProducto = array.filter((elemento, i) => {
                 return elemento.id != Number(id)
             })
-            infoCarrito = listaProductos
-            localStorage.setItem("carrito", JSON.stringify(infoCarrito))
-            console.log(infoCarrito)    
-            cardsHTML_compra(infoCarrito)
-            borrarDelCarrito(infoCarrito)       
+            infoDelLs = filtrarProducto
+            localStorage.setItem("carrito", JSON.stringify(infoDelLs))
+            console.log(infoDelLs)    
+            cardHtml(infoDelLs)
+            borrarDelCarrito(infoDelLs)       
         }
         
     })
 }
 
-borrarDelCarrito(infoCarrito)
+borrarDelCarrito(infoDelLs)
 
 const botonBorrarCarrito = document.querySelector("#vaciarCarro")
 
 botonBorrarCarrito.onclick = () => {
     localStorage.removeItem("carrito")
-    document.querySelector(".container_compra").innerHTML = "no hay productos"
+    document.querySelector(".carrito-contenedor").innerHTML = "no hay productos"
 }

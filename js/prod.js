@@ -43,20 +43,29 @@ cardsHTML(productos)
 
 let carrito = []
 
-const tarjetas = document.querySelectorAll(".tarjetaProd")
-tarjetas.forEach( boton => {
-    boton.onclick = () => {
-        const id = boton.id
-        const filtrarProducto = productos.find((elemento) => {
-            return elemento.id === Number(id)
+function agregarCarrito (array)
+{
+    const cardAgregada = document.querySelectorAll(".tarjetaProd")
+    cardAgregada.forEach ( boton =>
+        {
+            boton.onclick = () =>
+            {
+                const id = boton.id
+                const filtrarProducto = productos.find((elemento) =>
+                {
+                    return elemento.id === Number(id)
+                })
+                carrito.push(filtrarProducto)
+                console.log(carrito)
+                localStorage.setItem("carrito", JSON.stringify(carrito))
+            }
         })
-        carrito.push(filtrarProducto)   
-        console.log(carrito)
-        localStorage.setItem("carrito", JSON.stringify(carrito))   
-    }
-    
-})
+}
 
-const productosElegidos = JSON.parse(localStorage.getItem("carrito"))
-carrito = productosElegidos || []
+agregarCarrito(productos)
+
+const productosAgregados = JSON.parse(localStorage.getItem("carrito"))
+carrito = productosAgregados || []
+
+
 
